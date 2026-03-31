@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Anu&amp;Co | Our Story, Mission &amp; Leadership Team</title>
+    <meta name="description"
+        content="Anu&Co was founded in 2015 to bridge the gap between families needing trusted home care and skilled professionals. Learn about our mission, values, leadership, and trust policies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ─── Page-specific ─────────────────────────── */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .mv-card {
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-card.mission {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 1px solid #bfdbfe;
+        }
+
+        .mv-card.vision {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border: 1px solid #a7f3d0;
+        }
+
+        .mv-card h3 {
+            font-family: var(--font-main);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-1);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: .65rem;
+        }
+
+        .mv-card p {
+            color: var(--text-2);
+            line-height: 1.8;
+            font-size: .95rem;
+        }
+
+        /* Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .value-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--t);
+        }
+
+        .value-card:hover {
+            border-color: #c7d7f8;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px);
+        }
+
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 0 auto 1.25rem;
+        }
+
+        .value-card h4 {
+            font-family: var(--font-main);
+            font-weight: 800;
+            color: var(--text-1);
+            margin-bottom: .5rem;
+        }
+
+        .value-card p {
+            font-size: .87rem;
+            color: var(--text-3);
+            line-height: 1.7;
+        }
+
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--t);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: #c7d7f8;
+        }
+
+        .team-img {
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s var(--ease);
+        }
+
+        .team-card:hover .team-img img {
+            transform: scale(1.06);
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-info h4 {
+            font-family: var(--font-main);
+            font-weight: 800;
+            color: var(--text-1);
+            margin-bottom: .2rem;
+        }
+
+        .team-role {
+            font-size: .82rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-bottom: .65rem;
+        }
+
+        .team-info p {
+            font-size: .85rem;
+            color: var(--text-3);
+            line-height: 1.65;
+        }
+
+        /* Trust checklist */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.1rem;
+        }
+
+        .trust-item {
+            display: flex;
+            gap: .9rem;
+            align-items: flex-start;
+            padding: 1.25rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            transition: var(--t);
+        }
+
+        .trust-item:hover {
+            border-color: #c7d7f8;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .t-icon {
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: .95rem;
+        }
+
+        .trust-item h4 {
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: .9rem;
+            color: var(--text-1);
+            margin-bottom: .25rem;
+        }
+
+        .trust-item p {
+            font-size: .82rem;
+            color: var(--text-3);
+            line-height: 1.55;
+        }
+
+        @media(max-width:700px) {
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar transparent" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="brand-logo" style="padding:2cap">
+                    <div class="brand-logo-mark">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                </div>
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="navbar-cta" style="padding: 2cap;"><a href="booking.html" class="btn-nav"><i class="fa-solid fa-calendar-check"></i>
+                    Book Service</a></div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fa-solid fa-house-user" style="color:var(--primary);width:18px"></i> Home</a>
+        <a href="about.html"><i class="fa-solid fa-building-user" style="color:var(--primary);width:18px"></i> About
+            Us</a>
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical" style="color:var(--primary);width:18px"></i>
+            Services</a>
+        <a href="careers.html"><i class="fa-solid fa-user-tie" style="color:var(--primary);width:18px"></i> Careers</a>
+        <a href="contact.html"><i class="fa-solid fa-phone" style="color:var(--primary);width:18px"></i> Contact</a>
+        <a href="booking.html" class="m-btn btn btn-primary" style="margin-top:1rem;justify-content:center"><i
+                class="fa-solid fa-calendar-check"></i> Book a Service</a>
+    </div>
+
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>About Us</span></div>
+            <h1 data-aos="fade-up">About <span class="gradient-text">Anu&amp;Co</span></h1>
+            <p data-aos="fade-up" data-aos-delay="80">A decade of trust, compassion, and professional excellence — built
+                one family at a time.</p>
+        </div>
+    </section>
+
+    <!-- ─── COMPANY INTRO ──────────────────────────────────────── -->
+    <section class="section">
+        <div class="container">
+            <div class="split-grid">
+                <div data-aos="fade-right">
+                    <div class="split-img">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900&q=85&auto=format&fit=crop"
+                            alt="Anu&Co leadership" loading="lazy">
+                        <div class="split-img-badge" style="right:auto;left:-1.5rem">
+                            <div class="b-num">2015</div>
+                            <div class="b-lbl">Year Founded</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="120">
+                    <div class="tag">Our Story</div>
+                    <h2 class="section-title">Building India's Most<br>Trusted <span>Care Network</span></h2>
+                    <p style="color:var(--text-3);line-height:1.85;margin-bottom:1.1rem;font-size:.97rem">
+                        Anu&amp;Co was founded in 2015 by Anupama Rao, a human resources veteran who had witnessed
+                        firsthand the chaos families endured trying to find reliable domestic help. She built Anu&amp;Co
+                        on a deceptively simple idea: <strong style="color:var(--text-1)">trust must be earned before
+                            placement, not assumed after</strong>.
+                    </p>
+                    <p style="color:var(--text-3);line-height:1.85;margin-bottom:1.1rem;font-size:.97rem">
+                        Starting with a team of 12 caregivers in Bangalore, we have grown organically — through word of
+                        mouth, 4.9-star reviews, and an unwavering refusal to compromise on verification standards —
+                        into a pan-India network covering <strong style="color:var(--primary)">9 specialized service
+                            categories</strong> with over 1,200 active professionals.
+                    </p>
+                    <p style="color:var(--text-3);line-height:1.85;margin-bottom:2rem;font-size:.97rem">
+                        Today, we serve over 5,000 families and corporates across Bangalore, Chennai, Mumbai, Hyderabad,
+                        Pune, and Delhi NCR — and counting. Every placement we make is backed by our multi-layer vetting
+                        process, ongoing training, and a genuine commitment to the dignity and welfare of every
+                        professional in our network.
+                    </p>
+                    <div style="display:flex;gap:2.5rem;flex-wrap:wrap">
+                        <div>
+                            <div
+                                style="font-family:var(--font-main);font-size:2rem;font-weight:900;color:var(--primary)">
+                                5,000+</div>
+                            <div style="font-size:.83rem;color:var(--text-3);font-weight:500">Satisfied Families</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-family:var(--font-main);font-size:2rem;font-weight:900;color:var(--primary)">
+                                1,200+</div>
+                            <div style="font-size:.83rem;color:var(--text-3);font-weight:500">Active Professionals</div>
+                        </div>
+                        <div>
+                            <div
+                                style="font-family:var(--font-main);font-size:2rem;font-weight:900;color:var(--primary)">
+                                9</div>
+                            <div style="font-size:.83rem;color:var(--text-3);font-weight:500">Service Categories</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── MISSION & VISION ───────────────────────────────────── -->
+    <section class="section" style="background:var(--surface-2)">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <div class="tag">Our North Star</div>
+                <h2 class="section-title">Mission &amp; <span>Vision</span></h2>
+                <p class="section-subtitle">The guiding principles that shape every decision, placement, and interaction
+                    at Anu&amp;Co.</p>
+            </div>
+            <div class="mv-grid" data-aos="fade-up" data-aos-delay="80">
+                <div class="mv-card mission">
+                    <h3><i class="fa-solid fa-bullseye" style="color:var(--primary)"></i> Our Mission</h3>
+                    <p>To make quality home care and workforce solutions universally accessible, transparent, and
+                        reliable — by rigorously vetting every professional, continuously investing in their
+                        development, and standing behind every placement with an iron-clad service guarantee. We exist
+                        to give families the peace of mind they deserve, and to provide skilled professionals with
+                        dignified, sustainable employment.</p>
+                </div>
+                <div class="mv-card vision">
+                    <h3><i class="fa-solid fa-eye" style="color:var(--success)"></i> Our Vision</h3>
+                    <p>To become India's definitive trusted platform for domestic and corporate manpower — a household
+                        name synonymous with safety, quality, and care. We envision a future where every family in India
+                        has frictionless access to vetted, professional home services, and where every skilled domestic
+                        worker has access to fair pay, career growth, and social recognition for their invaluable
+                        contribution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CORE VALUES ────────────────────────────────────────── -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <div class="tag">What We Stand For</div>
+                <h2 class="section-title">Our Four <span>Core Values</span></h2>
+                <p class="section-subtitle">These principles are not posters on a wall — they are embedded in every hire
+                    we make, every training we run, and every service we deliver.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h4>Integrity</h4>
+                    <p>We operate with radical transparency. No hidden fees, no false promises — clients and
+                        professionals alike always know exactly where they stand.</p>
+                </div>
+                <div class="value-card" data-aos="zoom-in" data-aos-delay="80">
+                    <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
+                    <h4>Compassion</h4>
+                    <p>We care deeply — about the families who entrust us with their loved ones, and about the
+                        professionals whose livelihoods depend on us. People always come first.</p>
+                </div>
+                <div class="value-card" data-aos="zoom-in" data-aos-delay="160">
+                    <div class="value-icon"><i class="fa-solid fa-star"></i></div>
+                    <h4>Excellence</h4>
+                    <p>Good enough is never good enough. Our professionals are trained, evaluated, and continuously
+                        developed to deliver service that genuinely exceeds expectations.</p>
+                </div>
+                <div class="value-card" data-aos="zoom-in" data-aos-delay="240">
+                    <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4>Safety</h4>
+                    <p>Safety is non-negotiable. Our multi-layer verification process, health screening, and ongoing
+                        monitoring systems ensure your home and family are always protected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── LEADERSHIP TEAM ────────────────────────────────────── -->
+    <section class="section" style="background:var(--surface-2)">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <div class="tag">The People Behind Anu&amp;Co</div>
+                <h2 class="section-title">Our <span>Leadership Team</span></h2>
+                <p class="section-subtitle">Experienced professionals dedicated to transforming how India accesses home
+                    care and manpower services.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&auto=format&fit=crop&crop=face"
+                            alt="Anupama Rao – Founder & CEO" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h4>Anupama Rao</h4>
+                        <div class="team-role">Founder &amp; Chief Executive Officer</div>
+                        <p>15 years in HR and workforce management. Former VP of Operations at a Fortune 500 staffing
+                            firm. Founded Anu&amp;Co in 2015 to set a new standard for domestic manpower with a
+                            human-first approach.</p>
+                    </div>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="80">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80&auto=format&fit=crop&crop=face"
+                            alt="Vikram Nair – COO" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h4>Vikram Nair</h4>
+                        <div class="team-role">Co-Founder &amp; Chief Operating Officer</div>
+                        <p>Operations specialist with 12 years building scalable service networks across South Asia.
+                            Architected Anu&amp;Co's multi-layer verification system and pan-India expansion strategy
+                            from the ground up.</p>
+                    </div>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="160">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80&auto=format&fit=crop&crop=face"
+                            alt="Deepa Krishnan – Head of Training" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h4>Deepa Krishnan</h4>
+                        <div class="team-role">Head of Training &amp; Quality</div>
+                        <p>Certified healthcare educator with 10 years training domestic workers and nurses. Designed
+                            Anu&amp;Co's award-winning professional development curriculum covering caregiving, clinical
+                            skills, and soft skills.</p>
+                    </div>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="240">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80&auto=format&fit=crop&crop=face"
+                            alt="Rohit Shetty – Head of Talent" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h4>Rohit Shetty</h4>
+                        <div class="team-role">Head of Talent Acquisition</div>
+                        <p>Recruitment expert who has screened and onboarded over 3,000 professionals. Built the
+                            background verification protocols and maintains Anu&amp;Co's rigorous zero-compromise
+                            placement standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── TRUST & SAFETY ─────────────────────────────────────── -->
+    <section class="section">
+        <div class="container">
+            <div class="split-grid">
+                <div data-aos="fade-right">
+                    <div class="tag">Safety First</div>
+                    <h2 class="section-title">Our Trust &amp; <span>Safety Framework</span></h2>
+                    <p style="color:var(--text-3);line-height:1.85;margin-bottom:2rem;font-size:.97rem">
+                        Every professional in the Anu&amp;Co network clears a six-step vetting process before they are
+                        allowed to serve any client. We also conduct periodic re-assessments throughout their tenure.
+                        Your home security and family safety are never negotiable.
+                    </p>
+                    <div class="trust-grid">
+                        <div class="trust-item">
+                            <div class="t-icon"><i class="fa-solid fa-id-card"></i></div>
+                            <div>
+                                <h4>Identity Verification</h4>
+                                <p>Aadhaar, PAN, and residential address verification for every applicant</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="t-icon"><i class="fa-solid fa-user-police"></i></div>
+                            <div>
+                                <h4>Police Clearance</h4>
+                                <p>Mandatory criminal background check issued by local police authorities</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="t-icon"><i class="fa-solid fa-people-arrows"></i></div>
+                            <div>
+                                <h4>3 Reference Checks</h4>
+                                <p>Minimum three professional or personal references verified by our team</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="t-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                            <div>
+                                <h4>Medical Fitness</h4>
+                                <p>Health and fitness certification — including TB screening and blood tests</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="t-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <div>
+                                <h4>Skills Assessment</h4>
+                                <p>Practical skills test and interview by our in-house domain experts</p>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="t-icon"><i class="fa-solid fa-chart-line"></i></div>
+                            <div>
+                                <h4>Ongoing Monitoring</h4>
+                                <p>Regular client feedback reviews and periodic professional re-evaluations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="120">
+                    <div class="split-img">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=900&q=85&auto=format&fit=crop"
+                            alt="Trust and safety at Anu&Co" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm">
+        <div class="container" data-aos="zoom-in">
+            <div class="cta-band">
+                <h2>Ready to Experience the Anu&amp;Co Difference?</h2>
+                <p>Join thousands of families who've found trusted, professional, and compassionate help through us.</p>
+                <div class="btn-group">
+                    <a href="booking.html" class="btn-white btn"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
+                    <a href="contact.html" class="btn btn-outline" style="border-color:rgba(255,255,255,.4)"><i
+                            class="fa-solid fa-phone"></i> Talk to Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand-logo">
+                        <div class="brand-logo-mark"><svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div><span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                    </div>
+                    <p>India's most trusted platform for verified manpower and home care services. Connecting families
+                        with caring, skilled professionals since 2015.</p>
+                    <div class="footer-social">
+                        <a class="soc-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a class="soc-btn" href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="soc-btn" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a class="soc-btn" href="https://wa.me/919876543210" target="_blank"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#baby-care">Baby &amp; Infant Care</a></li>
+                        <li><a href="services.html#patient-care">Patient Care</a></li>
+                        <li><a href="services.html#old-age-care">Elderly Care</a></li>
+                        <li><a href="services.html#nursing-care">Certified Nursing</a></li>
+                        <li><a href="services.html#cooking-care">Personal Cook</a></li>
+                        <li><a href="services.html#driver-services">Driver Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Anu&amp;Co</a></li>
+                        <li><a href="booking.html">Book a Service</a></li>
+                        <li><a href="careers.html">Join Our Team</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get in Touch</h4>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-phone"></i></div>
+                        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <p><a href="mailto:info@anuandco.com">info@anuandco.com</a></p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <p>42 Service Lane, Koramangala, Bangalore – 560034</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2024 <span>Anu&amp;Co Services Private Limited</span> · All rights reserved
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919876543210" class="wa-float" target="_blank" rel="noopener noreferrer"
+        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

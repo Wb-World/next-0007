@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Anu&amp;Co – 9 Specialized Home &amp; Manpower Services</title>
+    <meta name="description"
+        content="Explore all 9 Anu&Co services in detail: baby care, patient care, elderly care, certified nursing, cooking, home maintenance, gardening, driver services, and property consulting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Service Quick Nav */
+        .service-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .65rem;
+            padding: 1.5rem 2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            margin-bottom: 4rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-nav a {
+            font-family: var(--font-main);
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--text-2);
+            padding: .45rem 1rem;
+            border-radius: var(--radius-full);
+            border: 1.5px solid var(--border);
+            transition: var(--t);
+            white-space: nowrap;
+        }
+
+        .service-nav a:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(26, 86, 219, .05);
+        }
+
+        /* Detail section */
+        .svc-section {
+            margin-bottom: 6rem;
+            scroll-margin-top: 90px;
+        }
+
+        .svc-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .svc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .svc-grid.rev {
+            direction: rtl;
+        }
+
+        .svc-grid.rev>* {
+            direction: ltr;
+        }
+
+        .svc-img {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            height: 440px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .svc-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s var(--ease);
+        }
+
+        .svc-img:hover img {
+            transform: scale(1.04);
+        }
+
+        .svc-icon-large {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .svc-num {
+            font-family: var(--font-main);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            color: var(--text-3);
+            text-transform: uppercase;
+            margin-bottom: .25rem;
+        }
+
+        .svc-title {
+            font-family: var(--font-main);
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-1);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .svc-desc {
+            color: var(--text-3);
+            font-size: .96rem;
+            line-height: 1.85;
+            margin-bottom: 1.5rem;
+        }
+
+        .svc-list {
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+            margin-bottom: 2rem;
+        }
+
+        .svc-list li {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            font-size: .9rem;
+            color: var(--text-2);
+        }
+
+        .svc-list li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/%3E%3C/svg%3E");
+            background-size: 14px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        @media(max-width:900px) {
+            .svc-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .svc-grid.rev {
+                direction: ltr;
+            }
+
+            .svc-img {
+                height: 340px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar transparent" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="brand-logo" style="padding:2cap">
+                    <div class="brand-logo-mark"><svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg></div>
+                    <span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                </div>
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="navbar-cta" style="padding: 2cap;"><a href="booking.html" class="btn-nav"><i
+                        class="fa-solid fa-calendar-check"></i>
+                    Book Service</a></div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fa-solid fa-house-user" style="color:var(--primary);width:18px"></i> Home</a>
+        <a href="about.html"><i class="fa-solid fa-building-user" style="color:var(--primary);width:18px"></i> About
+            Us</a>
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical" style="color:var(--primary);width:18px"></i>
+            Services</a>
+        <a href="careers.html"><i class="fa-solid fa-user-tie" style="color:var(--primary);width:18px"></i> Careers</a>
+        <a href="contact.html"><i class="fa-solid fa-phone" style="color:var(--primary);width:18px"></i> Contact</a>
+        <a href="booking.html" class="m-btn btn btn-primary" style="margin-top:1rem;justify-content:center"><i
+                class="fa-solid fa-calendar-check"></i> Book a Service</a>
+    </div>
+
+    <section class="page-banner">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>Services</span></div>
+            <h1 data-aos="fade-up">Our <span class="gradient-text">Services</span></h1>
+            <p data-aos="fade-up" data-aos-delay="80">Nine specialized service categories — one accountable, trusted
+                provider.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+
+            <!-- Quick Nav -->
+            <div class="service-nav" data-aos="fade-up">
+                <a href="#baby-care">Baby Care</a>
+                <a href="#patient-care">Patient Care</a>
+                <a href="#old-age-care">Elderly Care</a>
+                <a href="#nursing-care">Home Nursing</a>
+                <a href="#cooking-care">Cook &amp; Meals</a>
+                <a href="#home-maintenance">Home Maintenance</a>
+                <a href="#gardening">Gardening</a>
+                <a href="#driver-services">Driver Services</a>
+                <a href="#property-consultant">Property Consulting</a>
+            </div>
+
+            <!-- 01. Baby Care -->
+            <div class="svc-section" id="baby-care">
+                <div class="svc-grid" data-aos="fade-up">
+                    <div class="svc-img">
+                        <img src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=900&q=85&auto=format&fit=crop"
+                            alt="Baby Care" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="svc-num">Service — 01</div>
+                        <div class="svc-icon-large ic-rose"><i class="fa-solid fa-baby"></i></div>
+                        <h2 class="svc-title">Baby &amp; Infant Care</h2>
+                        <p class="svc-desc">Our certified infant caregivers are trained in all aspects of newborn and
+                            toddler development — from establishing healthy feeding and sleep routines to providing
+                            age-appropriate stimulation. Every caregiver holds an infant first-aid certificate and
+                            undergoes specialized training in newborn hygiene, cry interpretation, and safe handling.
+                        </p>
+                        <ul class="svc-list">
+                            <li>24/7 newborn care including night-duty shifts</li>
+                            <li>Feeding schedules, bottle prep, and breastfeeding support</li>
+                            <li>Developmental play, tummy time, and sensory activities</li>
+                            <li>Infant CPR and first-aid certified caregivers</li>
+                            <li>Toddler care up to 5 years — including toilet training</li>
+                            <li>Regular progress updates and parent communication</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book
+                            Baby Care</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 02. Patient Care -->
+            <div class="svc-section" id="patient-care">
+                <div class="svc-grid rev" data-aos="fade-up">
+                    <div class="svc-img">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=85&auto=format&fit=crop"
+                            alt="Patient Care" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="svc-num">Service — 02</div>
+                        <div class="svc-icon-large ic-blue"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <h2 class="svc-title">Patient Care Attendant</h2>
+                        <p class="svc-desc">Recovering at home is the most comfortable option — but it requires skilled
+                            support. Our trained patient care attendants bridge the gap between hospital-grade care and
+                            home comfort, working under your physician's guidance to ensure safe, monitored, and
+                            dignified recovery.</p>
+                        <ul class="svc-list">
+                            <li>Post-surgical and post-hospitalization recovery support</li>
+                            <li>Medication administration and schedule adherence</li>
+                            <li>Vital signs monitoring: BP, glucose, pulse, temperature</li>
+                            <li>Wound care, catheter management, and tube feeding</li>
+                            <li>Mobility assistance and physiotherapy exercise support</li>
+                            <li>Daily health logs shared with family and physicians</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book
+                            Patient Care</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03. Elderly Care -->
+            <div class="svc-section" id="old-age-care">
+                <div class="svc-grid" data-aos="fade-up">
+                    <div class="svc-img">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acf3dfd?w=900&q=85&auto=format&fit=crop"
+                            alt="Elderly Care" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="svc-num">Service — 03</div>
+                        <div class="svc-icon-large ic-amber"><i class="fa-solid fa-person-cane"></i></div>
+                        <h2 class="svc-title">Elderly &amp; Old Age Care</h2>
+                        <p class="svc-desc">Aging with dignity at home is a right, not a luxury. Our elderly care
+                            specialists combine practical physical assistance with genuine emotional companionship —
+                            ensuring your loved ones feel valued, safe, and engaged every single day.</p>
+                        <ul class="svc-list">
+                            <li>Personal hygiene — bathing, grooming, and dressing</li>
+                            <li>Daily companionship, conversation, and mental engagement</li>
+                            <li>Medication reminders and health condition monitoring</li>
+                            <li>Fall prevention, mobility assistance, and safe transfers</li>
+                            <li>Escort to doctor appointments and social outings</li>
+                            <li>Weekly family reports on health and mood</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book
+                            Elderly Care</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04. Nursing -->
+            <div class="svc-section" id="nursing-care">
+                <div class="svc-grid rev" data-aos="fade-up">
+                    <div class="svc-img">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=85&auto=format&fit=crop"
+                            alt="Home Nursing" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="svc-num">Service — 04</div>
+                        <div class="svc-icon-large ic-green"><i class="fa-solid fa-syringe"></i></div>
+                        <h2 class="svc-title">Certified Home Nursing</h2>
+                        <p class="svc-desc">Our panel of B.Sc and GNM-qualified nurses, all registered with the Indian
+                            Nursing Council, bring clinical excellence to your doorstep. They handle complex medical
+                            procedures with the same professionalism and hygiene standards as a hospital, in the comfort
+                            and privacy of your home.</p>
+                        <ul class="svc-list">
+                            <li>Injections, IV cannulation, and infusion therapy</li>
+                            <li>Blood glucose, BP, and SpO₂ monitoring</li>
+                            <li>Post-operative wound care and surgical dressing changes</li>
+                            <li>Nasogastric tube care and catheter management</li>
+                            <li>Palliative and end-of-life care support</li>
+                            <li>Coordination with attending specialists and physicians</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book
+                            Nursing Care</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 05. Cooking -->
+            <div class="svc-section" id="cooking-care">
+                <div class="svc-grid" data-aos="fade-up">
+                    <div class="svc-img">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85&auto=format&fit=crop"
+                            alt="Personal Cook" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="svc-num">Service — 05</div>
+                        <div class="svc-icon-large ic-orange"><i class="fa-solid fa-utensils"></i></div>
+                        <h2 class="svc-title">Personal Cook &amp; Meal Care</h2>
+                        <p class="svc-desc">Eating well is the foundation of health and happiness. Our experienced home
+                            cooks prepare fresh, nutritious, customized meals — from daily family cooking to specialized
+                            therapeutic diets — while maintaining impeccable kitchen hygiene standards throughout.</p>
+                        <ul class="svc-list">
+                            <li>Indian regional cuisines: South, North, Coastal, and more</li>
+                            <li>Continental, Mediterranean, and fusion cooking</li>
+                            <li>Diabetic, cardiac, renal, and post-surgical therapeutic diets</li>
+                            <li>Baby food, toddler meals, and senior-nutrition cooking</li>
+                            <li>Grocery planning, budgeting, and fresh ingredient sourcing</li>
+                            <li>Full kitchen cleaning and post-cooking hygiene maintenance</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book a
+                            Cook</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 06. Home Maintenance -->
+            <div class="svc-section" id="home-maintenance">
+                <div class="svc-grid rev" data-aos="fade-up">
+                    <div class="svc-img">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85&auto=format&fit=crop"
+                            alt="Home Maintenance" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="svc-num">Service — 06</div>
+                        <div class="svc-icon-large ic-purple"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                        <h2 class="svc-title">Home Maintenance &amp; Housekeeping</h2>
+                        <p class="svc-desc">A well-maintained home is more than a clean space — it is peace of mind. Our
+                            multi-skilled home maintenance workers keep your property spotless, safe, and fully
+                            functional, handling everything from deep cleaning to minor repairs with professionalism and
+                            care.</p>
+                        <ul class="svc-list">
+                            <li>Deep cleaning: floors, ceilings, kitchens, and bathrooms</li>
+                            <li>Daily, weekly, or monthly housekeeping schedules</li>
+                            <li>Minor plumbing and electrical repairs and support</li>
+                            <li>Furniture assembly, painting, and carpentry assistance</li>
+                            <li>AC and appliance cleaning and basic servicing</li>
+                            <li>Pre- and post-event cleaning and set-up</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book
+                            Maintenance</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 07. Gardening -->
+            <div class="svc-section" id="gardening">
+                <div class="svc-grid" data-aos="fade-up">
+                    <div class="svc-img">
+                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=85&auto=format&fit=crop"
+                            alt="Gardening Services" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="svc-num">Service — 07</div>
+                        <div class="svc-icon-large ic-green"><i class="fa-solid fa-seedling"></i></div>
+                        <h2 class="svc-title">Gardening &amp; Landscaping</h2>
+                        <p class="svc-desc">Your outdoor space deserves the same professional care as your interiors.
+                            Our expert gardeners handle everything from basic lawn maintenance to complete landscape
+                            design — transforming neglected gardens into beautiful, sustainable green sanctuaries.</p>
+                        <ul class="svc-list">
+                            <li>Complete garden design, setup, and landscaping</li>
+                            <li>Regular mowing, pruning, weeding, and edging</li>
+                            <li>Soil health, fertilization, and organic pest management</li>
+                            <li>Terrace and balcony garden installation</li>
+                            <li>Kitchen garden — vegetables, herbs, and microgreens</li>
+                            <li>Seasonal planting, transplanting, and floral arrangement</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book a
+                            Gardener</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 08. Driver -->
+            <div class="svc-section" id="driver-services">
+                <div class="svc-grid rev" data-aos="fade-up">
+                    <div class="svc-img">
+                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=900&q=85&auto=format&fit=crop"
+                            alt="Driver Services" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="svc-num">Service — 08</div>
+                        <div class="svc-icon-large ic-cyan"><i class="fa-solid fa-car"></i></div>
+                        <h2 class="svc-title">Professional Driver Services</h2>
+                        <p class="svc-desc">Our vetted, licensed drivers bring punctuality, professionalism, and road
+                            expertise to every journey. From daily family commutes to corporate chauffeur services and
+                            long-distance travel, every driver is selected for their impeccable record, professional
+                            conduct, and courteous attitude.</p>
+                        <ul class="svc-list">
+                            <li>Personal drivers for daily commutes and errands</li>
+                            <li>Corporate chauffeur services for executives</li>
+                            <li>Airport pick-up and drop across all key cities</li>
+                            <li>Outstation and interstate travel assignments</li>
+                            <li>School run drivers — reliable and punctual daily</li>
+                            <li>Full-time and part-time placement options</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book a
+                            Driver</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 09. Property -->
+            <div class="svc-section" id="property-consultant">
+                <div class="svc-grid" data-aos="fade-up">
+                    <div class="svc-img">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=85&auto=format&fit=crop"
+                            alt="Property Consultancy" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="svc-num">Service — 09</div>
+                        <div class="svc-icon-large ic-indigo"><i class="fa-solid fa-building"></i></div>
+                        <h2 class="svc-title">Property Consultancy</h2>
+                        <p class="svc-desc">Property transactions represent some of life's biggest decisions. Our
+                            licensed property consultants offer expert, conflict-free guidance through every step of
+                            buying, selling, renting, or managing residential and commercial properties — protecting
+                            your interests with full legal and documentation support throughout.</p>
+                        <ul class="svc-list">
+                            <li>Residential and commercial property buy/sell assistance</li>
+                            <li>Rental listing, tenant screening, and lease management</li>
+                            <li>Independent property valuation and market analysis</li>
+                            <li>Legal due diligence, title verification, and documentation</li>
+                            <li>NRI-specific property services and investment advisory</li>
+                            <li>Property management and maintenance coordination</li>
+                        </ul>
+                        <a href="booking.html" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Get
+                            Consultation</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm" style="background:var(--surface-2)">
+        <div class="container" data-aos="zoom-in">
+            <div class="cta-band">
+                <h2>Not Sure Which Service Fits You Best?</h2>
+                <p>Speak with our expert service advisors — free consultation, no pressure, tailored recommendations for
+                    your exact needs.</p>
+                <div class="btn-group">
+                    <a href="booking.html" class="btn-white btn"><i class="fa-solid fa-calendar-check"></i> Book Free
+                        Consultation</a>
+                    <a href="https://wa.me/919876543210" class="btn btn-outline"
+                        style="border-color:rgba(255,255,255,.4)" target="_blank"><i class="fa-brands fa-whatsapp"></i>
+                        WhatsApp Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand-logo">
+                        <div class="brand-logo-mark"><svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div><span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                    </div>
+                    <p>India's most trusted platform for verified manpower and home care services since 2015.</p>
+                    <div class="footer-social"><a class="soc-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a><a
+                            class="soc-btn" href="#"><i class="fa-brands fa-instagram"></i></a><a class="soc-btn"
+                            href="#"><i class="fa-brands fa-linkedin-in"></i></a><a class="soc-btn"
+                            href="https://wa.me/919876543210" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#baby-care">Baby Care</a></li>
+                        <li><a href="#patient-care">Patient Care</a></li>
+                        <li><a href="#old-age-care">Elderly Care</a></li>
+                        <li><a href="#nursing-care">Home Nursing</a></li>
+                        <li><a href="#cooking-care">Cook &amp; Meals</a></li>
+                        <li><a href="#home-maintenance">Home Maintenance</a></li>
+                        <li><a href="#driver-services">Driver Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Anu&amp;Co</a></li>
+                        <li><a href="booking.html">Book a Service</a></li>
+                        <li><a href="careers.html">Join Our Team</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-phone"></i></div>
+                        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <p><a href="mailto:info@anuandco.com">info@anuandco.com</a></p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <p>42 Service Lane, Koramangala, Bangalore – 560034</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2024 <span>Anu&amp;Co Services Private Limited</span> · All rights reserved
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919876543210" class="wa-float" target="_blank" rel="noopener noreferrer"
+        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

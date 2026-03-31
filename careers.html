@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Join the Anu&amp;Co Professional Network</title>
+    <meta name="description"
+        content="Build a meaningful career with Anu&Co. View open positions for caregivers, nurses, cooks, drivers, and more. Enjoy competitive pay, free training, and career growth.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Perks */
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .perk-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: var(--t);
+        }
+
+        .perk-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: #c7d7f8;
+        }
+
+        .perk-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #fff;
+            margin: 0 auto 1.1rem;
+        }
+
+        .perk-card h4 {
+            font-family: var(--font-main);
+            font-weight: 800;
+            color: var(--text-1);
+            margin-bottom: .45rem;
+            font-size: .97rem;
+        }
+
+        .perk-card p {
+            font-size: .85rem;
+            color: var(--text-3);
+            line-height: 1.65;
+        }
+
+        /* Job cards */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .job-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: var(--t);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform .4s var(--ease);
+        }
+
+        .job-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .job-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .job-header {
+            display: flex;
+            gap: .85rem;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .job-dept-icon {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .job-title {
+            font-family: var(--font-main);
+            font-weight: 800;
+            font-size: 1.03rem;
+            color: var(--text-1);
+            margin-bottom: .2rem;
+        }
+
+        .job-dept-label {
+            font-size: .77rem;
+            color: var(--text-3);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        .job-badges {
+            display: flex;
+            gap: .5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .job-desc {
+            font-size: .88rem;
+            color: var(--text-3);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .job-reqs {
+            margin-bottom: 1.4rem;
+        }
+
+        .job-reqs li {
+            font-size: .83rem;
+            color: var(--text-2);
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+            padding: .28rem 0;
+        }
+
+        .job-reqs li::before {
+            content: '→';
+            color: var(--primary);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .job-apply {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            padding: .65rem 1.4rem;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            font-family: var(--font-main);
+            font-size: .84rem;
+            font-weight: 600;
+            transition: var(--t);
+        }
+
+        .job-apply:hover {
+            box-shadow: 0 6px 20px rgba(26, 86, 219, .4);
+            transform: translateY(-2px);
+        }
+
+        /* Apply form */
+        .apply-wrapper {
+            background: linear-gradient(135deg, #060d1e 0%, #0a2040 60%, #062a42 100%);
+            border-radius: var(--radius-xl);
+            padding: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apply-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(26, 86, 219, .12);
+            top: -200px;
+            right: -150px;
+            pointer-events: none;
+        }
+
+        .apply-wrapper h2 {
+            font-family: var(--font-main);
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: .5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .apply-wrapper>p {
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-pos {
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .apply-wrapper .form-control {
+            background: rgba(255, 255, 255, .07);
+            border-color: rgba(255, 255, 255, .15);
+            color: #fff;
+        }
+
+        .apply-wrapper .form-control::placeholder {
+            color: rgba(255, 255, 255, .35);
+        }
+
+        .apply-wrapper .form-control:focus {
+            border-color: var(--accent-light);
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .apply-wrapper label {
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .apply-wrapper select option {
+            background: #0a2040;
+            color: #fff;
+        }
+
+        @media(max-width:680px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .apply-wrapper {
+                padding: 2rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar transparent" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="brand-logo" style="padding:2cap">
+                    <div class="brand-logo-mark"><svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg></div>
+                    <span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                </div>
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html" class="active">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="navbar-cta" style="padding: 2cap;"><a href="booking.html" class="btn-nav"><i
+                        class="fa-solid fa-calendar-check"></i>
+                    Book Service</a></div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fa-solid fa-house-user" style="color:var(--primary);width:18px"></i> Home</a>
+        <a href="about.html"><i class="fa-solid fa-building-user" style="color:var(--primary);width:18px"></i> About
+            Us</a>
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical" style="color:var(--primary);width:18px"></i>
+            Services</a>
+        <a href="careers.html"><i class="fa-solid fa-user-tie" style="color:var(--primary);width:18px"></i> Careers</a>
+        <a href="contact.html"><i class="fa-solid fa-phone" style="color:var(--primary);width:18px"></i> Contact</a>
+        <a href="booking.html" class="m-btn btn btn-primary" style="margin-top:1rem;justify-content:center"><i
+                class="fa-solid fa-calendar-check"></i> Book a Service</a>
+    </div>
+
+    <section class="page-banner">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>Careers</span></div>
+            <h1 data-aos="fade-up">Join the <span class="gradient-text">Anu&amp;Co Family</span></h1>
+            <p data-aos="fade-up" data-aos-delay="80">Build a meaningful career by making a real difference in thousands
+                of families' lives.</p>
+        </div>
+    </section>
+
+    <!-- WHY JOIN -->
+    <section class="section">
+        <div class="container">
+            <div class="split-grid">
+                <div data-aos="fade-right">
+                    <div class="split-img">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85&auto=format&fit=crop"
+                            alt="Anu&Co team culture" loading="lazy">
+                    </div>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="100">
+                    <div class="tag">Why Join Us</div>
+                    <h2 class="section-title">More Than a Job —<br><span>A Calling With Benefits</span></h2>
+                    <p style="color:var(--text-3);line-height:1.85;margin-bottom:1.5rem;font-size:.97rem">
+                        At Anu&amp;Co, we believe that the people who care for India's families deserve to be well cared
+                        for themselves. Our professionals are not just employees — they are valued community members who
+                        receive above-market compensation, continuous training, health support, and a clear pathway to
+                        career advancement.
+                    </p>
+                    <div class="features-list">
+                        <div class="feat-item">
+                            <div class="feat-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                            <div>
+                                <h4>Competitive &amp; Timely Pay</h4>
+                                <p>Above-market compensation paid punctually every month, with performance bonuses and
+                                    annual increments.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item">
+                            <div class="feat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <h4>Free Professional Training</h4>
+                                <p>Quarterly skill development workshops, domain certifications, and soft-skills
+                                    programs — fully sponsored by Anu&amp;Co.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item">
+                            <div class="feat-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                            <div>
+                                <h4>Health &amp; Wellness Support</h4>
+                                <p>Basic medical insurance, annual health check-ups, and access to our professional
+                                    wellness programs.</p>
+                            </div>
+                        </div>
+                        <div class="feat-item">
+                            <div class="feat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                            <div>
+                                <h4>Real Career Progression</h4>
+                                <p>Clear advancement pathways from associate to senior professional to team supervisor —
+                                    based purely on performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERKS -->
+    <section class="section" style="background:var(--surface-2)">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <div class="tag">What You Get</div>
+                <h2 class="section-title">Professional <span>Benefits &amp; Perks</span></h2>
+                <p class="section-subtitle">We go well beyond salary. Here's everything that comes with being part of
+                    the Anu&amp;Co professional community.</p>
+            </div>
+            <div class="perks-grid">
+                <div class="perk-card" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="perk-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <h4>Timely Monthly Salary</h4>
+                    <p>Guaranteed on-time payment every month, with transparent pay slips and no deductions without
+                        consent.</p>
+                </div>
+                <div class="perk-card" data-aos="zoom-in" data-aos-delay="60">
+                    <div class="perk-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <h4>Free Certification</h4>
+                    <p>Earn nationally recognized certifications in your domain — infant care, nursing assistance, food
+                        safety, and more.</p>
+                </div>
+                <div class="perk-card" data-aos="zoom-in" data-aos-delay="120">
+                    <div class="perk-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h4>Health Insurance</h4>
+                    <p>Up to ₹1 lakh basic health coverage for you and your immediate family — included from day one.
+                    </p>
+                </div>
+                <div class="perk-card" data-aos="zoom-in" data-aos-delay="180">
+                    <div class="perk-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h4>Digital Work Tools</h4>
+                    <p>Access our professional app for schedules, client communication, pay stubs, and support —
+                        anywhere, anytime.</p>
+                </div>
+                <div class="perk-card" data-aos="zoom-in" data-aos-delay="240">
+                    <div class="perk-icon"><i class="fa-solid fa-users"></i></div>
+                    <h4>Supportive Community</h4>
+                    <p>Join a network of 1,200+ professionals, peer mentors, and team supervisors who genuinely support
+                        your growth.</p>
+                </div>
+                <div class="perk-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="perk-icon"><i class="fa-solid fa-chair"></i></div>
+                    <h4>Flexible Assignments</h4>
+                    <p>Choose full-time, part-time, or live-in placements. We work around your lifestyle and
+                        availability wherever possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOBS -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <div class="tag">Open Positions</div>
+                <h2 class="section-title">Current <span>Job Openings</span></h2>
+                <p class="section-subtitle">We are actively hiring across all service categories. Browse positions below
+                    and apply using the form at the bottom of this page.</p>
+            </div>
+            <div class="jobs-grid">
+
+                <div class="job-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="job-header">
+                        <div class="job-dept-icon ic-rose"><i class="fa-solid fa-baby"></i></div>
+                        <div>
+                            <div class="job-title">Baby Care Professional</div>
+                            <div class="job-dept-label">Caregiving Division · Multiple Cities</div>
+                        </div>
+                    </div>
+                    <div class="job-badges"><span class="badge badge-success">Full Time</span><span
+                            class="badge badge-primary">3 Openings</span><span class="badge"
+                            style="background:rgba(220,38,38,.1);color:var(--danger)">Urgent</span></div>
+                    <p class="job-desc">Provide attentive, loving daily care for infants and toddlers in client homes.
+                        You will manage feeding routines, hygiene, developmental activities, and maintain a safe,
+                        nurturing environment.</p>
+                    <ul class="job-reqs">
+                        <li>Minimum 1 year infant or childcare experience</li>
+                        <li>Infant CPR certification preferred (training provided)</li>
+                        <li>Warm, patient, and reliable character</li>
+                    </ul>
+                    <a href="#apply-form" class="job-apply"><i class="fa-solid fa-paper-plane"></i> Apply Now</a>
+                </div>
+
+                <div class="job-card" data-aos="fade-up" data-aos-delay="60">
+                    <div class="job-header">
+                        <div class="job-dept-icon ic-blue"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <div>
+                            <div class="job-title">Patient Care Attendant</div>
+                            <div class="job-dept-label">Healthcare Division · Pan India</div>
+                        </div>
+                    </div>
+                    <div class="job-badges"><span class="badge badge-success">Full / Part Time</span><span
+                            class="badge badge-warning">High Demand</span></div>
+                    <p class="job-desc">Assist patients recovering from surgery or illness at home. Responsibilities
+                        include medication management, hygiene care, vital monitoring, and mobility support — under
+                        physician guidance.</p>
+                    <ul class="job-reqs">
+                        <li>GNM or healthcare assistant certification preferred</li>
+                        <li>Experience in patient handling and mobility assistance</li>
+                        <li>Empathetic, patient, and professional disposition</li>
+                    </ul>
+                    <a href="#apply-form" class="job-apply"><i class="fa-solid fa-paper-plane"></i> Apply Now</a>
+                </div>
+
+                <div class="job-card" data-aos="fade-up" data-aos-delay="120">
+                    <div class="job-header">
+                        <div class="job-dept-icon ic-green"><i class="fa-solid fa-syringe"></i></div>
+                        <div>
+                            <div class="job-title">Registered Nurse (Home Care)</div>
+                            <div class="job-dept-label">Nursing Division · Bangalore · Chennai</div>
+                        </div>
+                    </div>
+                    <div class="job-badges"><span class="badge badge-success">Full Time</span><span class="badge"
+                            style="background:rgba(220,38,38,.1);color:var(--danger)">Top Priority</span><span
+                            class="badge badge-primary">Premium Pay</span></div>
+                    <p class="job-desc">Deliver clinical-grade nursing care at patient homes — injections, IV therapy,
+                        wound dressing, catheter management, and coordination with attending physicians. Excellent
+                        compensation package.</p>
+                    <ul class="job-reqs">
+                        <li>B.Sc Nursing or GNM — mandatory</li>
+                        <li>Indian Nursing Council registration required</li>
+                        <li>Min. 2 years clinical experience</li>
+                    </ul>
+                    <a href="#apply-form" class="job-apply"><i class="fa-solid fa-paper-plane"></i> Apply Now</a>
+                </div>
+
+                <div class="job-card" data-aos="fade-up" data-aos-delay="180">
+                    <div class="job-header">
+                        <div class="job-dept-icon ic-amber"><i class="fa-solid fa-person-cane"></i></div>
+                        <div>
+                            <div class="job-title">Elderly Care Companion</div>
+                            <div class="job-dept-label">Caregiving Division · All Cities</div>
+                        </div>
+                    </div>
+                    <div class="job-badges"><span class="badge badge-success">Full / Part Time</span><span
+                            class="badge badge-primary">5+ Openings</span></div>
+                    <p class="job-desc">Provide compassionate companionship and daily living assistance to elderly
+                        clients. The role requires patience, empathy, and a genuine commitment to supporting the dignity
+                        of senior citizens.</p>
+                    <ul class="job-reqs">
+                        <li>Compassionate, patient, and dependable character</li>
+                        <li>Basic medical awareness and medication management</li>
+                        <li>Ability to assist with mobility and personal care tasks</li>
+                    </ul>
+                    <a href="#apply-form" class="job-apply"><i class="fa-solid fa-paper-plane"></i> Apply Now</a>
+                </div>
+
+                <div class="job-card" data-aos="fade-up" data-aos-delay="240">
+                    <div class="job-header">
+                        <div class="job-dept-icon ic-orange"><i class="fa-solid fa-utensils"></i></div>
+                        <div>
+                            <div class="job-title">Home Cook / Personal Chef</div>
+                            <div class="job-dept-label">Domestic Services · All Cities</div>
+                        </div>
+                    </div>
+                    <div class="job-badges"><span class="badge badge-success">Full / Part Time</span><span
+                            class="badge badge-warning">Very High Demand</span></div>
+                    <p class="job-desc">Prepare fresh, healthy, customized daily meals for client households.
+                        Proficiency in multiple Indian cuisines is essential. Therapeutic and diet-specific cooking
+                        experience is a strong advantage.</p>
+                    <ul class="job-reqs">
+                        <li>Expertise in at least 2 regional Indian cuisines</li>
+                        <li>Knowledge of diabetic, cardiac, or therapeutic diets preferred</li>
+                        <li>Food safety and kitchen hygiene compliance</li>
+                    </ul>
+                    <a href="#apply-form" class="job-apply"><i class="fa-solid fa-paper-plane"></i> Apply Now</a>
+                </div>
+
+                <div class="job-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="job-header">
+                        <div class="job-dept-icon ic-cyan"><i class="fa-solid fa-car"></i></div>
+                        <div>
+                            <div class="job-title">Personal / Corporate Driver</div>
+                            <div class="job-dept-label">Transport Division · Bangalore · Mumbai</div>
+                        </div>
+                    </div>
+                    <div class="job-badges"><span class="badge badge-success">Full Time</span><span
+                            class="badge badge-primary">4 Openings</span></div>
+                    <p class="job-desc">Serve as a reliable, courteous driver for individual family clients or corporate
+                        executives. Must be punctual, professionally dressed, and have a clean record. Airport runs and
+                        outstation travel included.</p>
+                    <ul class="job-reqs">
+                        <li>Valid LMV or HMV license with clean record</li>
+                        <li>Knowledge of city routes; GPS proficient</li>
+                        <li>Professional conduct and grooming standards</li>
+                    </ul>
+                    <a href="#apply-form" class="job-apply"><i class="fa-solid fa-paper-plane"></i> Apply Now</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- APPLY FORM -->
+    <section class="section" style="background:var(--surface-2)" id="apply-form">
+        <div class="container">
+            <div class="apply-wrapper" data-aos="fade-up">
+                <h2>Submit Your Application</h2>
+                <p>Fill in your details below. Our talent team reviews every application and responds within 48 business
+                    hours.</p>
+                <form class="form-pos" data-demo>
+                    <div class="form-row" style="margin-bottom:0">
+                        <div class="form-group"><label for="ap-name">Full Name *</label><input type="text" id="ap-name"
+                                class="form-control" placeholder="Your full legal name" required></div>
+                        <div class="form-group"><label for="ap-phone">Phone Number *</label><input type="tel"
+                                id="ap-phone" class="form-control" placeholder="+91 XXXXX XXXXX" required></div>
+                    </div>
+                    <div class="form-row" style="margin-bottom:0">
+                        <div class="form-group"><label for="ap-email">Email Address</label><input type="email"
+                                id="ap-email" class="form-control" placeholder="your@email.com"></div>
+                        <div class="form-group"><label for="ap-city">City / Location *</label><input type="text"
+                                id="ap-city" class="form-control" placeholder="City where you can work" required></div>
+                    </div>
+                    <div class="form-row" style="margin-bottom:0">
+                        <div class="form-group">
+                            <label for="ap-role">Position Applying For *</label>
+                            <select id="ap-role" class="form-control" required>
+                                <option value="" disabled selected>Select a position…</option>
+                                <option>Baby Care Professional</option>
+                                <option>Patient Care Attendant</option>
+                                <option>Registered Nurse (Home Care)</option>
+                                <option>Elderly Care Companion</option>
+                                <option>Home Cook / Personal Chef</option>
+                                <option>Home Maintenance Worker</option>
+                                <option>Professional Gardener</option>
+                                <option>Personal / Corporate Driver</option>
+                                <option>Property Consultant</option>
+                                <option>Other — Please Specify</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ap-exp">Years of Experience *</label>
+                            <select id="ap-exp" class="form-control" required>
+                                <option value="" disabled selected>Select experience level…</option>
+                                <option>Fresher — No prior experience</option>
+                                <option>Less than 1 year</option>
+                                <option>1 – 2 years</option>
+                                <option>3 – 5 years</option>
+                                <option>5 – 10 years</option>
+                                <option>More than 10 years</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group"><label for="ap-skills">Key Skills, Certifications &amp;
+                            Languages</label><input type="text" id="ap-skills" class="form-control"
+                            placeholder="e.g. Infant CPR, IV Therapy, North &amp; South Indian cuisine, LMV License, Hindi+English+Tamil…">
+                    </div>
+                    <div class="form-group"><label for="ap-msg">About Yourself &amp; Why Anu&amp;Co</label><textarea
+                            id="ap-msg" class="form-control"
+                            placeholder="Share your background, special qualifications, why you want to join Anu&amp;Co, and any information that helps us understand your strengths…"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-accent"
+                        style="width:100%;justify-content:center;padding:1rem;font-size:1rem;border-radius:var(--radius-md)">
+                        <i class="fa-solid fa-paper-plane"></i> Submit My Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand-logo">
+                        <div class="brand-logo-mark"><svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div><span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                    </div>
+                    <p>India's most trusted platform for verified manpower and home care services since 2015.</p>
+                    <div class="footer-social"><a class="soc-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a><a
+                            class="soc-btn" href="#"><i class="fa-brands fa-instagram"></i></a><a class="soc-btn"
+                            href="#"><i class="fa-brands fa-linkedin-in"></i></a><a class="soc-btn"
+                            href="https://wa.me/919876543210" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#baby-care">Baby Care</a></li>
+                        <li><a href="services.html#nursing-care">Nursing</a></li>
+                        <li><a href="services.html#cooking-care">Cook</a></li>
+                        <li><a href="services.html#driver-services">Driver</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Anu&amp;Co</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="booking.html">Book a Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Recruitment</h4>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-phone"></i></div>
+                        <p><a href="tel:+919876543211">+91 98765 43211</a><br><span
+                                style="font-size:.78rem;color:rgba(255,255,255,.35)">Careers hotline</span></p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <p><a href="mailto:careers@anuandco.com">careers@anuandco.com</a></p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-clock"></i></div>
+                        <p>Mon–Sat · 9AM – 6PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2024 <span>Anu&amp;Co Services Private Limited</span> · All rights reserved
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919876543210" class="wa-float" target="_blank" rel="noopener noreferrer"
+        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Service | Anu&amp;Co – Request a Verified Professional</title>
+    <meta name="description"
+        content="Book any of Anu&Co's 9 home and manpower services online. Submit your request and our team will confirm your booking within 2 hours. No advance payment required.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .booking-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .booking-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .bk-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: var(--t);
+        }
+
+        .bk-card:hover {
+            border-color: #c7d7f8;
+        }
+
+        .bk-card h3 {
+            font-family: var(--font-main);
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--text-1);
+            margin-bottom: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+        }
+
+        .bk-card h3 i {
+            color: var(--primary);
+        }
+
+        /* Process steps */
+        .bk-step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: .9rem;
+        }
+
+        .bk-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .bk-step-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: .84rem;
+        }
+
+        .bk-step h4 {
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: .88rem;
+            color: var(--text-1);
+            margin-bottom: .15rem;
+        }
+
+        .bk-step p {
+            font-size: .82rem;
+            color: var(--text-3);
+            line-height: 1.55;
+        }
+
+        /* Guarantees */
+        .guarantee-list {
+            display: flex;
+            flex-direction: column;
+            gap: .7rem;
+        }
+
+        .g-item {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            font-size: .87rem;
+            color: var(--text-2);
+        }
+
+        .g-item .g-check {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(5, 150, 105, .12);
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .7rem;
+            flex-shrink: 0;
+        }
+
+        /* Booking form card */
+        .bk-form-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .bk-form-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0c4a6e 100%);
+            padding: 2rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bk-form-header::before {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .06);
+            top: -120px;
+            right: -100px;
+        }
+
+        .bk-form-header h2 {
+            font-family: var(--font-main);
+            font-weight: 900;
+            font-size: 1.55rem;
+            color: #fff;
+            margin-bottom: .3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bk-form-header p {
+            color: rgba(255, 255, 255, .65);
+            font-size: .9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bk-form-body {
+            padding: 2.5rem;
+        }
+
+        .form-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .form-divider {
+            display: flex;
+            align-items: center;
+            gap: .85rem;
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--text-3);
+            margin: 1.6rem 0 .8rem;
+        }
+
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Service visual selector */
+        .svc-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .7rem;
+            margin-bottom: .5rem;
+        }
+
+        .svc-opt {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .35rem;
+            padding: .85rem .5rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--t);
+            text-align: center;
+        }
+
+        .svc-opt:hover {
+            border-color: var(--primary-light);
+            background: rgba(26, 86, 219, .04);
+        }
+
+        .svc-opt.selected {
+            border-color: var(--primary);
+            background: rgba(26, 86, 219, .08);
+        }
+
+        .svc-opt .svc-icon {
+            font-size: 1.5rem;
+        }
+
+        .svc-opt .svc-label {
+            font-size: .74rem;
+            font-weight: 600;
+            font-family: var(--font-main);
+            color: var(--text-2);
+            line-height: 1.3;
+        }
+
+        .svc-opt.selected .svc-label {
+            color: var(--primary);
+        }
+
+        /* Submit */
+        .bk-submit {
+            width: 100%;
+            padding: 1.1rem;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            border-radius: var(--radius-md);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--t);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
+            box-shadow: 0 6px 24px rgba(26, 86, 219, .38);
+            margin-top: .5rem;
+        }
+
+        .bk-submit:hover {
+            box-shadow: 0 12px 36px rgba(26, 86, 219, .5);
+            transform: translateY(-2px);
+        }
+
+        .bk-submit:active {
+            transform: scale(.98);
+        }
+
+        /* Trust badges */
+        .trust-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .9rem;
+            justify-content: center;
+            margin-top: 1.25rem;
+        }
+
+        .trust-pill {
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+            font-size: .79rem;
+            font-weight: 600;
+            color: var(--text-3);
+        }
+
+        /* FAQ */
+        details.faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: .85rem;
+            cursor: pointer;
+        }
+
+        details.faq-item[open] {
+            border-color: #c7d7f8;
+        }
+
+        details.faq-item summary {
+            font-family: var(--font-main);
+            font-weight: 700;
+            color: var(--text-1);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        details.faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.faq-item summary .faq-arrow {
+            flex-shrink: 0;
+            color: var(--primary);
+            font-size: .85rem;
+            transition: transform .3s;
+        }
+
+        details.faq-item[open] summary .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        details.faq-item p {
+            margin-top: 1rem;
+            font-size: .91rem;
+            color: var(--text-3);
+            line-height: 1.75;
+        }
+
+        @media(max-width:900px) {
+            .booking-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:600px) {
+            .form-2col {
+                grid-template-columns: 1fr;
+            }
+
+            .bk-form-body {
+                padding: 1.5rem;
+            }
+
+            .bk-form-header {
+                padding: 1.5rem;
+            }
+        }
+
+        @media(max-width:420px) {
+            .svc-selector {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar transparent" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="brand-logo">
+                    <div class="brand-logo-mark"><svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg></div>
+                    <span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                </div>
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="navbar-cta" style="padding: 2cap;"><a href="booking.html" class="btn-nav"
+                    style="background:linear-gradient(135deg,var(--success),#0d9488)"><i
+                        class="fa-solid fa-calendar-check"></i> Book Now</a></div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fa-solid fa-house-user" style="color:var(--primary);width:18px"></i> Home</a>
+        <a href="about.html"><i class="fa-solid fa-building-user" style="color:var(--primary);width:18px"></i> About
+            Us</a>
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical" style="color:var(--primary);width:18px"></i>
+            Services</a>
+        <a href="careers.html"><i class="fa-solid fa-user-tie" style="color:var(--primary);width:18px"></i> Careers</a>
+        <a href="contact.html"><i class="fa-solid fa-phone" style="color:var(--primary);width:18px"></i> Contact</a>
+        <a href="booking.html" class="m-btn btn btn-primary" style="margin-top:1rem;justify-content:center"><i
+                class="fa-solid fa-calendar-check"></i> Book a Service</a>
+    </div>
+
+    <section class="page-banner">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>Book Service</span>
+            </div>
+            <h1 data-aos="fade-up">Book a <span class="gradient-text">Professional</span></h1>
+            <p data-aos="fade-up" data-aos-delay="80">Trusted, verified help is just a few clicks away. Confirmed within
+                2 hours.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="booking-layout">
+
+                <!-- SIDEBAR -->
+                <div class="booking-sidebar" data-aos="fade-right">
+
+                    <div class="bk-card">
+                        <h3><i class="fa-solid fa-circle-info"></i> How Booking Works</h3>
+                        <div class="bk-step">
+                            <div class="bk-step-num">1</div>
+                            <div>
+                                <h4>Complete the Form</h4>
+                                <p>Tell us your service, location, and preferred start date. Any special requirements
+                                    you have.</p>
+                            </div>
+                        </div>
+                        <div class="bk-step">
+                            <div class="bk-step-num">2</div>
+                            <div>
+                                <h4>We Call You Back</h4>
+                                <p>Our team calls within 2 hours to confirm details, discuss requirements, and finalize
+                                    pricing.</p>
+                            </div>
+                        </div>
+                        <div class="bk-step">
+                            <div class="bk-step-num">3</div>
+                            <div>
+                                <h4>Professional Assigned</h4>
+                                <p>The best-matched, vetted professional from our active network is assigned to your
+                                    booking.</p>
+                            </div>
+                        </div>
+                        <div class="bk-step">
+                            <div class="bk-step-num">4</div>
+                            <div>
+                                <h4>Service Delivered</h4>
+                                <p>Your professional arrives on schedule. Pay only after service begins and you're
+                                    satisfied.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bk-card">
+                        <h3><i class="fa-solid fa-shield-halved"></i> Our Commitment to You</h3>
+                        <div class="guarantee-list">
+                            <div class="g-item">
+                                <div class="g-check"><i class="fa-solid fa-check"></i></div>100% Aadhaar and
+                                police-verified professionals
+                            </div>
+                            <div class="g-item">
+                                <div class="g-check"><i class="fa-solid fa-check"></i></div>Free replacement within 48
+                                hours, guaranteed
+                            </div>
+                            <div class="g-item">
+                                <div class="g-check"><i class="fa-solid fa-check"></i></div>24/7 support throughout your
+                                service period
+                            </div>
+                            <div class="g-item">
+                                <div class="g-check"><i class="fa-solid fa-check"></i></div>No advance payment — pay
+                                after confirmation only
+                            </div>
+                            <div class="g-item">
+                                <div class="g-check"><i class="fa-solid fa-check"></i></div>Transparent pricing — zero
+                                hidden charges
+                            </div>
+                            <div class="g-item">
+                                <div class="g-check"><i class="fa-solid fa-check"></i></div>Rated 4.9 ★ by 5,000+
+                                verified client reviews
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bk-card"
+                        style="background:linear-gradient(135deg,#052e55,#0a4070);border-color:transparent">
+                        <h3 style="color:#fff"><i class="fa-brands fa-whatsapp" style="color:#25d366"></i> Prefer
+                            WhatsApp?</h3>
+                        <p style="color:rgba(255,255,255,.65);font-size:.88rem;margin-bottom:1.25rem;line-height:1.7">
+                            For the fastest booking, message us directly. Our team typically responds in under 10
+                            minutes.</p>
+                        <a href="https://wa.me/919876543210?text=Hi%20Anu%26Co%2C%20I%27d%20like%20to%20book%20a%20service"
+                            target="_blank" rel="noopener noreferrer"
+                            style="display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;background:#25d366;color:#fff;border-radius:var(--radius-full);font-family:var(--font-main);font-weight:700;font-size:.88rem;transition:var(--t)">
+                            <i class="fa-brands fa-whatsapp"></i> Chat to Book Now
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- BOOKING FORM -->
+                <div data-aos="fade-left" data-aos-delay="100">
+                    <div class="bk-form-card">
+                        <div class="bk-form-header">
+                            <h2><i class="fa-solid fa-calendar-check" style="opacity:.85"></i> Request Your Service</h2>
+                            <p>Fill the form below — our team confirms within 2 hours.</p>
+                        </div>
+                        <div class="bk-form-body">
+                            <form data-demo id="bookingForm">
+
+                                <div class="form-divider">Your Details</div>
+                                <div class="form-2col">
+                                    <div class="form-group"><label for="b-name">Full Name *</label><input type="text"
+                                            id="b-name" class="form-control" placeholder="Your full name" required>
+                                    </div>
+                                    <div class="form-group"><label for="b-phone">Phone Number *</label><input type="tel"
+                                            id="b-phone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+                                    </div>
+                                </div>
+                                <div class="form-2col">
+                                    <div class="form-group"><label for="b-email">Email Address</label><input
+                                            type="email" id="b-email" class="form-control" placeholder="you@email.com">
+                                    </div>
+                                    <div class="form-group"><label for="b-alt">Alternate Contact</label><input
+                                            type="tel" id="b-alt" class="form-control" placeholder="Optional"></div>
+                                </div>
+
+                                <div class="form-divider">Select Your Service</div>
+                                <div class="svc-selector" id="svcSelector">
+                                    <div class="svc-opt" data-svc="Baby Care" onclick="selectSvc(this)">
+                                        <div class="svc-icon">👶</div>
+                                        <div class="svc-label">Baby Care</div>
+                                    </div>
+                                    <div class="svc-opt" data-svc="Patient Care" onclick="selectSvc(this)">
+                                        <div class="svc-icon">🏥</div>
+                                        <div class="svc-label">Patient Care</div>
+                                    </div>
+                                    <div class="svc-opt" data-svc="Elderly Care" onclick="selectSvc(this)">
+                                        <div class="svc-icon">🧓</div>
+                                        <div class="svc-label">Elderly Care</div>
+                                    </div>
+                                    <div class="svc-opt" data-svc="Home Nursing" onclick="selectSvc(this)">
+                                        <div class="svc-icon">💉</div>
+                                        <div class="svc-label">Home Nursing</div>
+                                    </div>
+                                    <div class="svc-opt" data-svc="Personal Cook" onclick="selectSvc(this)">
+                                        <div class="svc-icon">🍳</div>
+                                        <div class="svc-label">Cook</div>
+                                    </div>
+                                    <div class="svc-opt" data-svc="Home Maintenance" onclick="selectSvc(this)">
+                                        <div class="svc-icon">🔧</div>
+                                        <div class="svc-label">Maintenance</div>
+                                    </div>
+                                    <div class="svc-opt" data-svc="Gardening" onclick="selectSvc(this)">
+                                        <div class="svc-icon">🌿</div>
+                                        <div class="svc-label">Gardening</div>
+                                    </div>
+                                    <div class="svc-opt" data-svc="Driver Service" onclick="selectSvc(this)">
+                                        <div class="svc-icon">🚗</div>
+                                        <div class="svc-label">Driver</div>
+                                    </div>
+                                    <div class="svc-opt" data-svc="Property Consulting" onclick="selectSvc(this)">
+                                        <div class="svc-icon">🏘️</div>
+                                        <div class="svc-label">Property</div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="selectedSvc" name="service" value="">
+                                <p id="svc-valid-msg"
+                                    style="font-size:.8rem;color:var(--danger);display:none;margin-top:.3rem"><i
+                                        class="fa-solid fa-triangle-exclamation"></i> Please select a service above.</p>
+
+                                <div class="form-group" style="margin-top:.75rem">
+                                    <label for="b-duration">Service Duration *</label>
+                                    <select id="b-duration" class="form-control" required>
+                                        <option value="" disabled selected>How long do you need our professional?
+                                        </option>
+                                        <option>One-time visit (single day)</option>
+                                        <option>Short-term (1 week – 1 month)</option>
+                                        <option>Medium-term (1 – 3 months)</option>
+                                        <option>Long-term (3 – 6 months)</option>
+                                        <option>Permanent / Full-time placement</option>
+                                        <option>Not sure – please advise me</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-divider">Location &amp; Schedule</div>
+                                <div class="form-group">
+                                    <label for="b-address">Full Service Address *</label>
+                                    <input type="text" id="b-address" class="form-control"
+                                        placeholder="Flat no., Building, Street, Area, City – Pincode" required>
+                                </div>
+                                <div class="form-2col">
+                                    <div class="form-group"><label for="b-date">Preferred Start Date *</label><input
+                                            type="date" id="b-date" class="form-control" required></div>
+                                    <div class="form-group">
+                                        <label for="b-time">Preferred Time Slot</label>
+                                        <select id="b-time" class="form-control">
+                                            <option value="" disabled selected>Select a time…</option>
+                                            <option>Morning (6 AM – 12 PM)</option>
+                                            <option>Afternoon (12 PM – 4 PM)</option>
+                                            <option>Evening (4 PM – 8 PM)</option>
+                                            <option>Night Duty (8 PM – 6 AM)</option>
+                                            <option>Flexible / Any time</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-divider">Additional Preferences</div>
+                                <div class="form-group">
+                                    <label for="b-lang">Language Preference</label>
+                                    <select id="b-lang" class="form-control">
+                                        <option value="" disabled selected>Preferred communication language…</option>
+                                        <option>English</option>
+                                        <option>Hindi</option>
+                                        <option>Tamil</option>
+                                        <option>Telugu</option>
+                                        <option>Kannada</option>
+                                        <option>Malayalam</option>
+                                        <option>Marathi</option>
+                                        <option>Bengali</option>
+                                        <option>Any language is fine</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="b-notes">Special Requirements</label>
+                                    <textarea id="b-notes" class="form-control" style="min-height:110px"
+                                        placeholder="e.g. Female caregiver required, vegetarian cook, patient has Type-2 diabetes, toddler is 18 months old, house has two dogs, professional should not smoke…"></textarea>
+                                </div>
+
+                                <button type="submit" class="bk-submit">
+                                    <i class="fa-solid fa-calendar-check"></i> Confirm Booking Request
+                                </button>
+
+                                <div class="trust-row">
+                                    <div class="trust-pill"><i class="fa-solid fa-lock"
+                                            style="color:var(--primary)"></i> Secure &amp; Private</div>
+                                    <div class="trust-pill"><i class="fa-solid fa-circle-check"
+                                            style="color:var(--success)"></i> No Advance Payment</div>
+                                    <div class="trust-pill"><i class="fa-solid fa-phone"
+                                            style="color:var(--accent)"></i> Confirmed in 2 Hours</div>
+                                    <div class="trust-pill"><i class="fa-solid fa-rotate"
+                                            style="color:var(--warning)"></i> Free Replacement</div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background:var(--surface-2)">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <div class="tag">Common Questions</div>
+                <h2 class="section-title">Booking <span>FAQs</span></h2>
+                <p class="section-subtitle">Quick answers to the most common questions we receive from clients before
+                    their first booking.</p>
+            </div>
+            <div style="max-width:760px;margin:0 auto" data-aos="fade-up" data-aos-delay="80">
+                <details class="faq-item">
+                    <summary>How quickly can a professional be arranged? <i
+                            class="fa-solid fa-chevron-down faq-arrow"></i></summary>
+                    <p>For most services, we can place a professional within 24–48 hours. Urgent placements (especially
+                        patient care) are often available same day. Call our emergency line for critical requirements.
+                    </p>
+                </details>
+                <details class="faq-item">
+                    <summary>Is there any advance payment or booking fee? <i
+                            class="fa-solid fa-chevron-down faq-arrow"></i></summary>
+                    <p>No advance payment is ever required to make a booking. Payment is only initiated once you've
+                        spoken to our team, confirmed the professional, and are satisfied with the match. Our pricing is
+                        fully transparent.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What if I'm not satisfied with the professional? <i
+                            class="fa-solid fa-chevron-down faq-arrow"></i></summary>
+                    <p>We offer a free, no-questions-asked replacement within 48 hours of any placement. Call our
+                        support line or WhatsApp us and we immediately begin sourcing a better match for you.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Are all professionals background verified? <i
+                            class="fa-solid fa-chevron-down faq-arrow"></i></summary>
+                    <p>Absolutely. Every professional clears Aadhaar verification, police clearance, three reference
+                        checks, a medical fitness test, and a practical skills assessment before they join our active
+                        network. We also conduct periodic re-verifications.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I specify preferences like gender, language, or religion? <i
+                            class="fa-solid fa-chevron-down faq-arrow"></i></summary>
+                    <p>Yes. We accommodate preferences for gender, language, dietary habits (vegetarian/non-vegetarian),
+                        religion, and more. Please mention requirements in the "Special Requirements" field or tell our
+                        team during the confirmation call.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Do you provide live-in professionals? <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </summary>
+                    <p>Yes — we provide live-in caregivers, nurses, cooks, and attendants. Please indicate whether you
+                        require live-in or live-out support when filling the booking form or during our confirmation
+                        call.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand-logo">
+                        <div class="brand-logo-mark"><svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div><span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                    </div>
+                    <p>India's most trusted platform for verified manpower and home care services since 2015.</p>
+                    <div class="footer-social"><a class="soc-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a><a
+                            class="soc-btn" href="#"><i class="fa-brands fa-instagram"></i></a><a class="soc-btn"
+                            href="#"><i class="fa-brands fa-linkedin-in"></i></a><a class="soc-btn"
+                            href="https://wa.me/919876543210" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#baby-care">Baby Care</a></li>
+                        <li><a href="services.html#patient-care">Patient Care</a></li>
+                        <li><a href="services.html#nursing-care">Home Nursing</a></li>
+                        <li><a href="services.html#cooking-care">Personal Cook</a></li>
+                        <li><a href="services.html#driver-services">Driver</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-phone"></i></div>
+                        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <p><a href="mailto:info@anuandco.com">info@anuandco.com</a></p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <p>42 Service Lane, Koramangala, Bangalore</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2024 <span>Anu&amp;Co Services Private Limited</span> · All rights reserved
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919876543210" class="wa-float" target="_blank" rel="noopener noreferrer"
+        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // ─── Service selector
+        function selectSvc(el) {
+            document.querySelectorAll('.svc-opt').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            document.getElementById('selectedSvc').value = el.dataset.svc;
+            document.getElementById('svc-valid-msg').style.display = 'none';
+        }
+
+        // ─── Min date
+        (function () {
+            const d = document.getElementById('b-date');
+            if (d) d.setAttribute('min', new Date().toISOString().split('T')[0]);
+        })();
+
+        // ─── Validate service selection on submit
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            if (!document.getElementById('selectedSvc').value) {
+                e.preventDefault();
+                const msg = document.getElementById('svc-valid-msg');
+                msg.style.display = 'block';
+                const sel = document.getElementById('svcSelector');
+                sel.style.outline = '2px solid var(--danger)';
+                sel.style.borderRadius = 'var(--radius-md)';
+                sel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => { sel.style.outline = ''; msg.style.display = 'none'; }, 3000);
+            }
+        }, true);
+    </script>
+</body>
+
+</html>
