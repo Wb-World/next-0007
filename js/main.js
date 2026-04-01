@@ -130,10 +130,42 @@ document.querySelectorAll('form[data-demo]').forEach(form => {
 });
 
 // ─── Greeting Banner ─────────────────────────────────────────
-// Small touch for the "hero-eyebrow" urgency if needed
 (function () {
   const hr = new Date().getHours();
   const greet = hr < 12 ? 'Good Morning' : hr < 18 ? 'Good Afternoon' : 'Good Evening';
   const el = document.getElementById('heroGreeting');
-  if (el) el.textContent = greet + ' · ' + el.dataset.suffix;
+  if (el) el.textContent = greet + ' · ' + (el.dataset.suffix || 'Trusted Since 2015');
 })();
+
+// ─── ScrollSpy for Services Page ───────────────────────────
+const svcSidebarLinks = document.querySelectorAll('.svc-nav-link');
+const svcSections = document.querySelectorAll('.svc-detail-card');
+
+if (svcSidebarLinks.length && svcSections.length) {
+  const spyOptions = {
+    root: null,
+    rootMargin: '-10% 0px -70% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        svcSidebarLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, spyOptions);
+
+  svcSections.forEach(section => observer.observe(section));
+}
+
+// ─── Initialization ─────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  updateNav();
+  if (typeof AOS !== 'undefined') {
+    AOS.init({ duration: 800, easing: 'ease-out-quart', once: true, offset: 50 });
+  }
+});
