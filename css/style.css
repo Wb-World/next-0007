@@ -389,6 +389,9 @@ textarea.form-control {
     display: flex;
     align-items: center;
     gap: .15rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .navbar-nav a {

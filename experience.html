@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Experience | Anu&amp;Co Trusted Care Network</title>
+    <meta name="description"
+        content="Discover the deep industry experience behind Anu&Co. With over a decade of excellence, we bring unmatched expertise to manpower and home care services across India.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .exp-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .exp-content p {
+            color: var(--text-3);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .exp-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            aspect-ratio: 4/3;
+        }
+
+        .exp-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .exp-image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 991px) {
+            .exp-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .exp-grid:nth-child(even) {
+                direction: ltr;
+            }
+
+            .exp-grid:nth-child(even) .exp-content {
+                order: 2;
+            }
+
+            .exp-grid:nth-child(even) .exp-image-wrapper {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar transparent" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="brand-logo" style="padding:2cap">
+                    <div class="brand-logo-mark">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                </div>
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="experience.html" class="active">Experience</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fa-solid fa-house-user" style="color:var(--primary);width:18px"></i> Home</a>
+        <a href="about.html"><i class="fa-solid fa-building-user" style="color:var(--primary);width:18px"></i> About
+            Us</a>
+        <a href="experience.html"><i class="fa-solid fa-star" style="color:var(--primary);width:18px"></i>
+            Experience</a>
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical" style="color:var(--primary);width:18px"></i>
+            Services</a>
+        <a href="careers.html"><i class="fa-solid fa-user-tie" style="color:var(--primary);width:18px"></i> Careers</a>
+        <a href="contact.html"><i class="fa-solid fa-phone" style="color:var(--primary);width:18px"></i> Contact</a>
+
+    </div>
+
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>Experience</span></div>
+            <h1 data-aos="fade-up">Our <span class="gradient-text">Experience</span></h1>
+            <p data-aos="fade-up" data-aos-delay="80">Over a decade of setting industry standards in home care and
+                professional manpower solutions.</p>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE DETAILS -->
+    <section class="section">
+        <div class="container">
+
+            <!-- First Row -->
+            <div class="exp-grid">
+                <div class="exp-content" data-aos="fade-right">
+                    <div class="tag">Unmatched Expertise</div>
+                    <h2 class="section-title">A Legacy of <br><span>Professional Excellence</span></h2>
+                    <p>Since our inception in 2015, Anu&amp;Co has been at the forefront of the home care industry. Our
+                        journey began with a simple mission: to provide families with reliable, verified, and
+                        compassionate care that they can trust implicitly.</p>
+                    <p>With years of hands-on experience, we have refined our processes, expanded our service offerings,
+                        and built a network of professionals who are not just skilled, but also deeply committed to
+                        their calling. Our expertise spans across specialized nursing, infant care, and personalized
+                        home maintenance.</p>
+                </div>
+                <div class="exp-image-wrapper" data-aos="fade-left">
+                    <img src="images/image1.png" alt="Anu&Co Professional Experience" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="exp-grid">
+                <div class="exp-image-wrapper" data-aos="fade-right">
+                    <img src="images/image2.png" alt="Trusted Manpower Solutions" loading="lazy" decoding="async">
+                </div>
+                <div class="exp-content" data-aos="fade-left">
+                    <div class="tag">Proven Track Record</div>
+                    <h2 class="section-title">Delivering Trust <br><span>Every Day</span></h2>
+                    <p>Our experience is reflected in the thousands of families we have served across India. We
+                        understand the nuances of home care, from the delicate needs of a newborn to the complex
+                        requirements of post-operative patient recovery.</p>
+                    <p>Every year, we invest in training and upskilling our staff to ensure they stay ahead of industry
+                        standards. This dedication to continuous improvement is why we maintain a 4.9-star rating and
+                        have become the preferred choice for discerning families nationwide.</p>
+                </div>
+            </div>
+
+            <!-- Third Row -->
+            <div class="exp-grid">
+                <div class="exp-content" data-aos="fade-right">
+                    <div class="tag">Specialized Training</div>
+                    <h2 class="section-title">Investing in <br><span>Our People</span></h2>
+                    <p>At Anu&amp;Co, we believe that exceptional care starts with exceptional training. Our
+                        professionals undergo rigorous skill assessment and continuous upskilling programs to meet the
+                        highest industry standards.</p>
+                    <p>From infant first-aid to specialized geriatric care, our team is equipped with the knowledge and
+                        tools to provide best-in-class service to every family.</p>
+                </div>
+                <div class="exp-image-wrapper" data-aos="fade-left">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/072/890/839/small/five-stacks-of-golden-coins-increasing-in-height-with-a-rising-arrow-on-blue-background-photo.jpeg"
+                        alt="Specialized Care Training" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <!-- Fourth Row -->
+            <div class="exp-grid">
+                <div class="exp-image-wrapper" data-aos="fade-right">
+                    <img src="https://t3.ftcdn.net/jpg/02/32/64/74/360_F_232647434_DNAbmrSrK4QQrtAvzng0LBtETyD5xqw0.jpg"
+                        alt="Home Maintenance Expertise" loading="lazy" decoding="async">
+                </div>
+                <div class="exp-content" data-aos="fade-left">
+                    <div class="tag">Quality Assurance</div>
+                    <h2 class="section-title">Excellence in <br><span>Every Detail</span></h2>
+                    <p>Whether it's deep cleaning or minor home repairs, our maintenance team brings a level of
+                        precision and dedication that is unmatched. We treat every home with the utmost respect and
+                        care.</p>
+                    <p>Our goal is to create a safe, clean, and functional environment for our clients, allowing them to
+                        focus on what matters most to them.</p>
+                </div>
+            </div>
+
+            <!-- Fifth Row -->
+            <div class="exp-grid">
+                <div class="exp-content" data-aos="fade-right">
+                    <div class="tag">Compassionate Care</div>
+                    <h2 class="section-title">Nurturing the <br><span>Next Generation</span></h2>
+                    <p>Our baby care specialists are more than just caregivers; they are companions who play a vital
+                        role in the early development of children. We focus on feeding, hygiene, and developmental play.
+                    </p>
+                    <p>With a foundation of trust and safety, we ensure that parents can have peace of mind knowing
+                        their little ones are in the best possible hands.</p>
+                </div>
+                <div class="exp-image-wrapper" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?w=900&q=80&auto=format&fit=crop"
+                        alt="Compassionate Baby Care" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <div class="stats-strip"
+        style="background:var(--surface-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+        <div class="container">
+            <div class="stats-strip-grid">
+                <div class="stat-item">
+                    <div class="num" data-target="10" data-suffix="+">10+</div>
+                    <div class="lbl">Years in Service</div>
+                </div>
+                <div class="stat-item">
+                    <div class="num" data-target="5000" data-suffix="+">5000+</div>
+                    <div class="lbl">Satisfied Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="num" data-target="1200" data-suffix="+">1200+</div>
+                    <div class="lbl">Verified Experts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="num" data-target="24" data-suffix="/7">24/7</div>
+                    <div class="lbl">Support Coverage</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="section-sm">
+        <div class="container" data-aos="zoom-in">
+            <div class="cta-band">
+                <h2>Ready to Experience Our Award-Winning Service?</h2>
+                <p>Connect with India's most experienced home care network today and find the perfect professional for
+                    your needs.</p>
+                <div class="btn-group">
+
+                    <a href="contact.html" class="btn btn-outline" style="border-color:rgba(255,255,255,.4)"><i
+                            class="fa-solid fa-phone"></i> Talk to Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand-logo">
+                        <div class="brand-logo-mark" style="padding:2cap"><svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div><span class="brand-wordmark">Anu<span class="amp">&amp;</span>Co</span>
+                    </div>
+                    <p>India's most trusted platform for verified manpower and home care services. Connecting families
+                        with caring, skilled professionals since 2015.</p>
+                    <div class="footer-social">
+                        <a class="soc-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a class="soc-btn" href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="soc-btn" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a class="soc-btn" href="https://wa.me/919884818130" target="_blank"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#baby-care">Baby &amp; Infant Care</a></li>
+                        <li><a href="services.html#patient-care">Patient Care</a></li>
+                        <li><a href="services.html#old-age-care">Elderly Care</a></li>
+                        <li><a href="services.html#nursing-care">Certified Nursing</a></li>
+                        <li><a href="services.html#cooking-care">Personal Cook</a></li>
+                        <li><a href="services.html#driver-services">Driver Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Anu&amp;Co</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+
+                        <li><a href="careers.html">Join Our Team</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get in Touch</h4>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-phone"></i></div>
+                        <p>
+                            <a href="tel:+919884818130">+91 98848 18130</a> - Sundar<br>
+                            <a href="tel:+919150772643">+91 91507 72643</a> - Menaka (Manager)<br>
+                        </p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <p><a href="mailto:info@anuandco.com">info@anuandco.com</a></p>
+                    </div>
+                    <div class="fc-contact-item">
+                        <div class="fc-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <p>42 Service Lane, Koramangala, Bangalore – 560034</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 <span>Anu&amp;Co Services Private Limited</span> · All rights reserved
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919884818130" class="wa-float" target="_blank" rel="noopener noreferrer"
+        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
