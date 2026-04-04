@@ -44,6 +44,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-xl);
             aspect-ratio: 4/3;
+            background: var(--surface-2);
         }
 
         .exp-image-wrapper img {
@@ -53,6 +54,24 @@
             transition: transform 0.6s ease;
         }
 
+        /* Specific style for registration document to avoid cropping */
+        .exp-image-wrapper.document-image {
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            padding: 0;
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        .exp-image-wrapper.document-image img {
+            object-fit: contain;
+            height: 100%;
+            width: 100%;
+        }
+
         .exp-image-wrapper:hover img {
             transform: scale(1.05);
         }
@@ -60,7 +79,12 @@
         @media (max-width: 991px) {
             .exp-grid {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 2rem;
+                margin-bottom: 3.5rem;
+            }
+
+            .exp-content h2 {
+                font-size: 1.85rem;
             }
 
             .exp-grid:nth-child(even) {
@@ -73,6 +97,18 @@
 
             .exp-grid:nth-child(even) .exp-image-wrapper {
                 order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-banner {
+                padding: 7rem 0 4rem;
+                /* Increased top padding for mobile */
+            }
+
+            .exp-image-wrapper.document-image {
+                aspect-ratio: auto;
+                min-height: 400px;
             }
         }
     </style>
@@ -135,6 +171,26 @@
     <!-- EXPERIENCE DETAILS -->
     <section class="section">
         <div class="container">
+
+            <!-- Official Registration Row -->
+            <div class="exp-grid">
+                <div class="exp-image-wrapper document-image" data-aos="fade-right">
+                    <img src="images/registration_certificate.png" alt="Anu&Co Government Registration Certificate"
+                        loading="lazy" decoding="async">
+                </div>
+                <div class="exp-content" data-aos="fade-left">
+                    <div class="tag">Authorized & Licensed</div>
+                    <h2 class="section-title"><span>ACKNOWLEDGEMENT OF<br>REGISTRATION FIRM</span></h2>
+                    <p><strong>GOVERNMENT OF TAMIL NADU<br>REGISTRATION DEPARTMENT</strong><br>FORM C - See Rule 9 (a)
+                    </p>
+                    <p>The Registrar of firms, Chennai (South) hereby acknowledged the receipt of statement prescribed
+                        by section 58 (1) of the Indian Partnership Act. 1932. The Statement has been filed and the name
+                        of the firm ANU & CO has been entered in the Registrar of Firm as No.891 of 2006 in the office
+                        of the District Registrar of Firms, Chennai South</p>
+                    <p>District Registrar's Office Chennai (South) Chennai-15.</p>
+                    <p>Dated 24<sup>TH</sup> day of AUGUST 2006</p>
+                </div>
+            </div>
 
             <!-- First Row -->
             <div class="exp-grid">

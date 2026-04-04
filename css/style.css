@@ -1598,7 +1598,29 @@ textarea.form-control {
     }
 
     .page-banner {
-        padding: 7rem 0 4rem;
+        padding: 8rem 0 4.5rem;
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .wa-float {
+        width: 52px;
+        height: 52px;
+        font-size: 1.5rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 9999;
+    }
+
+    .scroll-top {
+        bottom: 5.8rem;
+        right: 1.5rem;
     }
 }
 
@@ -1609,6 +1631,14 @@ textarea.form-control {
 
     .testi-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-title {
+        font-size: 1.65rem;
     }
 
     .hero-btns {
@@ -1623,5 +1653,9 @@ textarea.form-control {
 
     .two-col {
         grid-template-columns: 1fr;
+    }
+
+    .cta-band h2 {
+        font-size: 1.6rem;
     }
 }
